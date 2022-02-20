@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:project_viewer/pages/home_page.dart';
+import 'package:project_viewer/app_router.gr.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final router = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'ProjectViewer',
+      title: 'Project Viewer',
+      routerDelegate: router.delegate(),
+      routeInformationParser: router.defaultRouteParser(),
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
         textTheme: const TextTheme(
@@ -21,7 +25,6 @@ class MyApp extends StatelessWidget {
           bodyLarge: TextStyle(fontSize: 26, color: Colors.black),
         )
       ),
-      home: const HomePage(),
     );
   }
 }
