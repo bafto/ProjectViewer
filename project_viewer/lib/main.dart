@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_viewer/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,40 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'ProjectViewer',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
-      ),
-      home: const HomePage(title: 'ProjectViewer'),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({ Key? key, required this.title }) : super(key: key);
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              child: Text(title),
-            ),
-            IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context),
-            )
-          ],
+        primarySwatch: Colors.lightBlue,
+        textTheme: const TextTheme(
+          displaySmall: TextStyle(fontSize: 40, color: Colors.white),
+          headlineMedium: TextStyle(fontSize: 38, color: Colors.black),
+          bodyLarge: TextStyle(fontSize: 26, color: Colors.black),
         )
       ),
-      body: Center(
-        child: Text(title),
-      )
+      home: const HomePage(),
     );
   }
 }
