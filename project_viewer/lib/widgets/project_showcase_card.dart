@@ -1,21 +1,16 @@
 import 'dart:math';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:project_viewer/pages/project_pages/project_page.dart';
+import 'package:auto_route/auto_route.dart';
 
 // A widget that displays a background image
 // and onHover animates some text with a header
 // and a description over the image
 class ProjectShowcaseCard extends StatefulWidget {
-  const ProjectShowcaseCard({ Key? key,
-    required this.description,
-    required this.title,
-    required this.background }) 
-    : super(key: key);
+  const ProjectShowcaseCard({ Key? key, required this.projectPage }) : super(key: key);
 
-  final String description; // the description that is shown onHover
-  final String title; // the headline that is shown onHover
-  final Image background; // the background image (blurred onHover)
+  final ProjectPage projectPage;
 
   @override
   createState() => _ProjectShowcaseCardState();
@@ -50,7 +45,9 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
     return Card( // main widget
       elevation: 4, // how big the shadow under the card is
       child: InkWell( //for the on hover callback
-        onTap: () {}, // needed for the hovering to work
+        onTap: () { // needed for the hovering to work
+          context.router.pushNamed("/Mandelbrot");
+        },
         onHover: (isHovering) {
           // if the user hovers we start the text and blur animation
           if (isHovering) {
@@ -72,7 +69,7 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
                   child: Container( // the container containing the actual image
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: widget.background.image,
+                        image: widget.projectPage.image!.image, //?? Image.asset("assets/mandelbrot.png").image,
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -109,8 +106,8 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
                         padding: const EdgeInsets.all(5),
                         child: Column(
                           children: [
-                            Text(widget.title, style: theme.textTheme.headlineMedium),
-                            Text(widget.description, style: theme.textTheme.bodyLarge),
+                            Text(widget.projectPage.title, style: theme.textTheme.headlineMedium),
+                            Text(widget.projectPage.shortDescription, style: theme.textTheme.bodyLarge),
                           ],
                         )
                       ),

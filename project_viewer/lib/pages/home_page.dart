@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-
+import 'package:project_viewer/util/default_app_bar.dart';
 import 'package:project_viewer/widgets/project_showcase_card.dart';
+import 'package:project_viewer/pages/project_pages/mandelbrot_page.dart';
 
 // main route of the application
 class HomePage extends StatefulWidget {
@@ -18,19 +17,7 @@ class _HomePageState extends State<HomePage> {
     final theme = Theme.of(context); // get the global theme for some text styles
 
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 85,
-        title: Text("Bafto's Project Viewer // Home", style: theme.textTheme.displaySmall),
-        actions: [
-          IconButton(
-            icon: Image.asset("assets/GitHub-Mark-Light-64px.png"),
-            iconSize: 40,
-            onPressed: () {
-              html.window.open("https://github.com/bafto", "bafto github");
-            },
-          ),
-        ],
-      ),
+      appBar: defaultAppBar(context, "Home"),
       body: IntrinsicHeight(
         child: Column(
           children: [
@@ -46,11 +33,7 @@ class _HomePageState extends State<HomePage> {
               child: SizedBox(
                 width: 500,
                 height: 500,
-                child: ProjectShowcaseCard(
-                  background: Image.asset("assets/mandelbrot.png"),
-                  title: "Mandelbrot",
-                  description: "A simple c++ application\nthat renders the mandelbrot fractal.",
-                ),
+                child: ProjectShowcaseCard(projectPage: MandelbrotPage()),
               ),
             ),
             Flexible(
