@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_viewer/util/default_app_bar.dart';
 import 'package:project_viewer/widgets/project_showcase_card.dart';
-import 'package:project_viewer/pages/project_pages/mandelbrot_page.dart';
+import 'package:project_viewer/pages/project_pages/pages.dart';
 
 // main route of the application
 class HomePage extends StatefulWidget {
@@ -18,32 +18,42 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: defaultAppBar(context, "Home"),
-      body: IntrinsicHeight(
-        child: Column(
-          children: [
-            const Spacer(flex: 1),
-            Flexible(
-              flex: 3,
-              child: Center(
-                child: Text("Overview", style: theme.textTheme.headlineMedium)
+      body: Column(
+        children: [
+          Flexible(
+            flex: 1,
+            child: Center(
+              child: Text("Overview", style: theme.textTheme.headlineMedium)
+            ),
+          ),
+          Flexible(
+            flex: 3,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1300),
+              child: GridView.count(
+                shrinkWrap: true,
+                childAspectRatio: 16 / 9,
+                crossAxisCount: 3,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+                padding: const EdgeInsets.all(10),
+                children: [
+                  ProjectShowcaseCard(projectPage: MandelbrotPage()),
+                  ProjectShowcaseCard(projectPage: PlatformerPage()),
+                  ProjectShowcaseCard(projectPage: DartcounterPage()),
+                  ProjectShowcaseCard(projectPage: GameoflifePage()),
+                  ProjectShowcaseCard(projectPage: ModstatsPage()),
+                ],
               ),
             ),
-            Flexible(
-              flex: 5,
-              child: SizedBox(
-                width: 500,
-                height: 500,
-                child: ProjectShowcaseCard(projectPage: MandelbrotPage()),
-              ),
-            ),
-            Flexible(
-              flex: 3,
-              child: Center(
-                child: Text("Some text describing the project.\nIt even has newlines!", style: theme.textTheme.bodyLarge),
-              )
-            ),
-          ],
-        ),
+          ),
+          Flexible(
+            flex: 1,
+            child: Center(
+              child: Text("Some text describing the project.\nIt even has newlines!", style: theme.textTheme.bodyLarge),
+            )
+          ),
+        ],
       ),
     );
   }
