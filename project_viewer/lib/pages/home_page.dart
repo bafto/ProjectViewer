@@ -28,23 +28,44 @@ class _HomePageState extends State<HomePage> {
           ),
           Flexible(
             flex: 3,
-            child: ConstrainedBox(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 1300),
-              child: GridView.count(
-                shrinkWrap: true,
-                childAspectRatio: 16 / 9,
-                crossAxisCount: 3,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                padding: const EdgeInsets.all(10),
+              child: Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  ProjectShowcaseCard(projectPage: MandelbrotPage()),
-                  ProjectShowcaseCard(projectPage: PlatformerPage()),
-                  ProjectShowcaseCard(projectPage: DartcounterPage()),
-                  ProjectShowcaseCard(projectPage: GameoflifePage()),
-                  ProjectShowcaseCard(projectPage: ModstatsPage()),
+                  SizedBox(
+                    child: ProjectShowcaseCard(projectPage: MandelbrotPage()),
+                    width: 400,
+                    height: 225,
+                  ),
+                  SizedBox(
+                    child: ProjectShowcaseCard(projectPage: PlatformerPage()),
+                    width: 400,
+                    height: 225,
+                  ),
+                  SizedBox(
+                    child: ProjectShowcaseCard(projectPage: DartcounterPage()),
+                    width: 400,
+                    height: 225,
+                  ),
+                  SizedBox(
+                    child: ProjectShowcaseCard(projectPage: GameoflifePage()),
+                    width: 400,
+                    height: 225,
+                  ),
+                  SizedBox(
+                    child: ProjectShowcaseCard(projectPage: ModstatsPage()),
+                    width: 400,
+                    height: 225,
+                  ),
                 ],
               ),
+            ),
             ),
           ),
           Flexible(

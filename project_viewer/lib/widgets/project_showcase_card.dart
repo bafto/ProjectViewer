@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:project_viewer/pages/project_pages/project_page.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:bordered_text/bordered_text.dart';
 
 // A widget that displays a background image
 // and onHover animates some text with a header
@@ -41,6 +42,7 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context); // get the global theme for some text styles
+    final textColor = Colors.white;
 
     return Card( // main widget
       elevation: 4, // how big the shadow under the card is
@@ -106,8 +108,16 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
                         padding: const EdgeInsets.all(5),
                         child: Column(
                           children: [
-                            Text(widget.projectPage.title, style: theme.textTheme.headlineMedium),
-                            Text(widget.projectPage.shortDescription, style: theme.textTheme.bodyLarge),
+                            BorderedText(
+                              child: Text(widget.projectPage.title, style: theme.textTheme.headlineMedium!.merge(TextStyle(color: textColor))),
+                              strokeColor: Colors.black,
+                              strokeWidth: 2.5,
+                            ),
+                            BorderedText(
+                              child: Text(widget.projectPage.shortDescription, style: theme.textTheme.bodyLarge!.merge(TextStyle(color: textColor)), textAlign: TextAlign.center),
+                              strokeColor: Colors.black,
+                              strokeWidth: 2.5,
+                            ),
                           ],
                         )
                       ),

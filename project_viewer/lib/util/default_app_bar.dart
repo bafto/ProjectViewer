@@ -7,6 +7,7 @@ AppBar defaultAppBar(BuildContext context, String title) {
   final theme = Theme.of(context);
   return AppBar(
     toolbarHeight: 85,
+    backgroundColor: Colors.grey.shade700,
     title: Text("Bafto's Project Viewer // $title", style: theme.textTheme.displaySmall),
     actions: [
       IconButton(

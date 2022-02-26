@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       routerDelegate: router.delegate(),
       routeInformationParser: router.defaultRouteParser(),
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
+        primarySwatch: Colors.grey,
+        scaffoldBackgroundColor: Colors.grey,
         textTheme: const TextTheme(
           displaySmall: TextStyle(fontSize: 40, color: Colors.white),
           headlineMedium: TextStyle(fontSize: 38, color: Colors.black),
