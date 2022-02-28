@@ -41,8 +41,8 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); // get the global theme for some text styles
-    final textColor = Colors.white;
+    final textTheme = Theme.of(context).textTheme; // get the global theme for some text styles
+    const textColor = Colors.white;
 
     return Card( // main widget
       elevation: 4, // how big the shadow under the card is
@@ -109,12 +109,12 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
                         child: Column(
                           children: [
                             BorderedText(
-                              child: Text(widget.projectPage.title, style: theme.textTheme.headlineMedium!.merge(TextStyle(color: textColor))),
+                              child: Text(widget.projectPage.title, style: textTheme.headlineMedium!.merge(const TextStyle(color: textColor))),
                               strokeColor: Colors.black,
                               strokeWidth: 2.5,
                             ),
                             BorderedText(
-                              child: Text(widget.projectPage.shortDescription, style: theme.textTheme.bodyLarge!.merge(TextStyle(color: textColor)), textAlign: TextAlign.center),
+                              child: Text(widget.projectPage.shortDescription, style: textTheme.bodyLarge!.merge(const TextStyle(color: textColor)), textAlign: TextAlign.center),
                               strokeColor: Colors.black,
                               strokeWidth: 2.5,
                             ),
