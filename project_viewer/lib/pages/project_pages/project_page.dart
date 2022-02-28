@@ -16,6 +16,7 @@ abstract class ProjectPage extends StatelessWidget {
     Key? key,
     this.image,
     this.title = "",
+    this.route = "/",
     this.shortDescription = "",
     this.description = "",
     this.lifeDemoUrl = "",
@@ -29,6 +30,7 @@ abstract class ProjectPage extends StatelessWidget {
   // (which is also necessery for auto_route to work)
   final Image? image; // an image used as background for the ProjectShowcaseCard and elsewhere
   final String title; // the title (or name) of the Project
+  final String route; // the route path for of the page for the Project
   final String shortDescription; // a short description for the ProjectShowcaseCard or a subheader
   final String description; // a longer description of the Project
   final String lifeDemoUrl; // a url to a life web demo of the Project, if empty no demo is provided

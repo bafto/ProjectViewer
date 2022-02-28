@@ -14,6 +14,7 @@ class MandelbrotPage extends ProjectPage {
     key: null, // a ProjectPage is basically a static object, so no key needed
     image: previewImage,
     title: "MandelbrotSFML",
+    route: "/Mandelbrot",
     shortDescription: "A visulization of the mandelbrot set in c++ using SFML",
     description: """A visulization of the mandelbrot fractal in c++ using SFML.
 Usage:
@@ -37,6 +38,7 @@ class DartcounterPage extends ProjectPage {
     key: null,
     image: previewImage,
     title: "Dart Counter",
+    route: "/DartCounter",
     shortDescription: "A simple flutter app to manage the score in a match of darts",
     description: """An application to keep track of a Dart match.
 It is currently made for Windows-only use, but you can build it for any Platform if you want,
@@ -57,6 +59,7 @@ class GameoflifePage extends ProjectPage {
     key: null,
     image: previewImage,
     title: "Game of Life",
+    route: "/GameOfLife",
     shortDescription: "A small version of Conways Game of Life written in c++ using sfml",
     description: """A small version of Conways Game of Life written in c++ using sfml.
 You can navigate the field using WASD or the arrow keys, and zoom in and out with the mouse wheel.
@@ -77,6 +80,7 @@ class PlatformerPage extends ProjectPage {
     key: null,
     image: previewImage,
     title: "Platformer",
+    route: "/Platformer",
     shortDescription: "A game written in C# using the Monogame Framework",
     description: """A game written in C# using the Monogame Framework.
 I made it together with NotLe0n, whose Github profile is also linked in the repository, so visit him too.
@@ -98,6 +102,7 @@ class ModstatsPage extends ProjectPage {
     key: null,
     image: previewImage,
     title: "Mod Statistics",
+    route: "/ModStats",
     shortDescription: "A website which shows statistics about a terraria mod",
     description: """This is a website which displays information about tModloader mods.
 

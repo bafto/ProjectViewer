@@ -48,7 +48,7 @@ class _ProjectShowcaseCardState extends State<ProjectShowcaseCard> with TickerPr
       elevation: 4, // how big the shadow under the card is
       child: InkWell( //for the on hover callback
         onTap: () { // needed for the hovering to work
-          context.router.pushNamed("/Mandelbrot");
+          context.router.replaceNamed(widget.projectPage.route);
         },
         onHover: (isHovering) {
           // if the user hovers we start the text and blur animation
