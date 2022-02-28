@@ -96,7 +96,21 @@ All of the projects displayed here and some more are on """,
                           children: [TextSpan(text: " too.\n", style: textTheme.bodyLarge)],
                           recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            html.window.open("https://github.com/NotLe0n", "bafto github");
+                            html.window.open("https://github.com/NotLe0n", "NotLe0n github");
+                          },
+                          style: hyperlinkStyle,
+                        )
+                      ],
+                    ),
+                    TextSpan(
+                      text: "You can find the source code for of this website ",
+                      children: [
+                        TextSpan(
+                          text: "in this github repo",
+                          children: [TextSpan(text: ".\n", style: textTheme.bodyLarge)],
+                          recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            html.window.open("https://github.com/bafto/ProjectViewer", "ProjectViewer github");
                           },
                           style: hyperlinkStyle,
                         )
